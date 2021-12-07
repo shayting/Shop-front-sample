@@ -1,11 +1,11 @@
 <template lang="pug">
-#home
+#products
   b-container
-    b-row
+    b-row(align-h='center')
       b-col(cols='12')
-        h1.text-center 熱門商品
-      b-col(cols='12' md='6' lg='3' v-for='product in products' :key='product.id')
-        ProductCard(:product='product')
+        h1 所有商品
+      b-col(cols='12' md='6' lg='3' v-for='product in products')
+        ProductCard(:product="product")
 </template>
 
 <script>
@@ -17,8 +17,9 @@ export default {
   },
   computed: {
     products () {
-      return this.$store.state.products.slice(0, 4)
+      return this.$store.state.products
     }
   }
 }
+
 </script>
